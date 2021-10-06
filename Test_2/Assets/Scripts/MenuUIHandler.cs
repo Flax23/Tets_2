@@ -13,13 +13,15 @@ using UnityEditor;
 
 public class MenuUIHandler : MonoBehaviour
 {
-    private AudioSource menuAudio;
-    bool audioState = true;
+    public AudioSource menuAudio;
 
     // Start is called before the first frame update
     void Start()
     {
+        
         menuAudio = GetComponent<AudioSource>();
+        if (MainManager.Instance.menuAudioIsDisabled)
+            menuAudio.enabled = false;
     }
 
     public void StartNew()
@@ -27,22 +29,21 @@ public class MenuUIHandler : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    public void MenuAudioSource()
+    public void MenuAudioState()
     {
-        if (audioState)
-        {
-            menuAudio.Stop();
-            audioState = false;
-        }
-        else
-        {
-            menuAudio.Play();
-            audioState = true;
-        } 
+        menuAudio.enabled = !menuAudio.enabled;
+        MainManager.Instance.menuAudioIsDisabled = !menuAudio.enabled;
+    }
+
+    public void GameAudioState()
+    {
+        MainManager.Instance.gameAudioIsDisabled = !MainManager.Instance.gameAudioIsDisabled;
     }
 
     public void Exit()
     {
+        MainManager.Instance.SaveSoundState();
+
 #if UNITY_EDITOR
         EditorApplication.ExitPlaymode();
 #else
