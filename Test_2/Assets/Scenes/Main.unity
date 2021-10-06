@@ -220,6 +220,7 @@ GameObject:
   - component: {fileID: 521469407}
   - component: {fileID: 521469411}
   - component: {fileID: 521469412}
+  - component: {fileID: 521469413}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -416,6 +417,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5aee156319d8245a298c7e7bc9622d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &521469413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521469406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c71603cd2bc9ab64ebeff25b8fba3462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &775200036
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,8 +512,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 521469412}
-        m_TargetAssemblyTypeName: MenuUIHandler, Assembly-CSharp
+      - m_Target: {fileID: 521469413}
+        m_TargetAssemblyTypeName: MainUIHandler, Assembly-CSharp
         m_MethodName: BackToMenu
         m_Mode: 1
         m_Arguments:
