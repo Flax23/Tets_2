@@ -18,7 +18,6 @@ public class MenuUIHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         menuAudio = GetComponent<AudioSource>();
         if (MainManager.Instance.menuAudioIsDisabled)
             menuAudio.enabled = false;
